@@ -1,3 +1,6 @@
+> [!NOTE]  
+> This repository is a fork of the awesome [Stillcolor](https://github.com/aiaf/Stillcolor) repository. The primary purpose of this fork is to provide backward compatibility for macOS 12.0+ (Monterey).
+> For macOS 13.0+ (Ventura) and later versions, I highly recommend using the original [Stillcolor](https://github.com/aiaf/Stillcolor) repository.
 
 
 # Stillcolor for macOS
@@ -15,14 +18,14 @@ Save your eyesight and disable temporal dithering on your Mac with Stillcolor, a
 
 These sensitivities manifest as eyestrain and fatigue, dry eyes, headache, nausea, inability to focus, and other physical symptoms.
 
-There's even a [petition](https://www.change.org/p/apple-add-accessibility-options-to-reduce-eye-strain-and-support-vision-disability-sufferers) urging Apple to make use of these technologies known and to implement accessbility options.
+There's even a [petition](https://www.change.org/p/apple-add-accessibility-options-to-reduce-eye-strain-and-support-vision-disability-sufferers) urging Apple to make use of these technologies known and to implement accessibility options.
 
-While there are apps and accessories to help dim blue light, and plenty of flicker-free monitors, temporal dithering can happen at the GPU level with no visible option to disable it (such as the case in Apple silicon Macs).
+While there are apps and accessories to help dim blue light, and plenty of flicker-free monitors, temporal dithering can happen at the GPU level with no visible option to disable it (such as the case in Apple Silicon Macs).
 
-Stillcolor allows you to disable GPU/DCP-generated temporal dithering from user space, helping massively reduce eyestrain with little to no degradation in image quality.
+Stillcolor allows you to disable GPU/DCP-generated temporal dithering from user space, helping massively reduce eye strain with little to no degradation in image quality.
 
 ## Caveats
-Note that while Stillcolor is 100% confirmed to remove GPU/DCP-generated temporal dithering, which is applied directly to the pixel framebuffer right before it's sent to the external/embedded display, the display panel's timing contoller (TCON) may still apply its own dithering/FRC to achieve advertised color bit depth. Whether or not Apple displays actively use TCON dithering in addition to DCP/GPU dithering is under investigation.
+Note that while Stillcolor is 100% confirmed to remove GPU/DCP-generated temporal dithering, which is applied directly to the pixel frame buffer right before it's sent to the external/embedded display, the display panel's timing controller (TCON) may still apply its own dithering/FRC to achieve advertised color bit depth. Whether Apple displays actively use TCON dithering in addition to DCP/GPU dithering is under investigation.
 
 
 ## Story and write-up
@@ -34,8 +37,8 @@ See this timeblend video of how your screen looks like with temporal dithering v
 [https://www.youtube.com/watch?v=D9AZqJH-U-U](https://www.youtube.com/watch?v=D9AZqJH-U-U) 
 
 ## Requirements
-- Apple silicon Mac e.g. M1/M2/M3
-- macOS >= 13
+- Apple Silicon Mac e.g. M1/M2/M3
+- macOS >= 12.0
 
 ## Installation
 Head over to [Releases](https://github.com/aiaf/Stillcolor/releases) and download the latest zip.
@@ -46,7 +49,7 @@ Select “Launch a login” to make this app run automatically and disable dithe
 
 ## Verifying status of temporal dithering
 
-To check wether the app did the job, run the following in Terminal:
+To check whether the app did the job, run the following in Terminal:
 
 `ioreg -lw0 | grep -i enableDither`
 
@@ -58,21 +61,10 @@ To re-enable dithering simply uncheck “Disable Dithering.”
 
 To verify that your GPU is not applying dithering you can try a visual test by visiting [Lagom LCD Gradient (banding) test](http://www.lagom.nl/lcd-test/gradient.php) 
 
-Set your built-in display’s color profile to sRGB at full brightness and look carefully at the gray parts, you should be able to see subtle banding when you disable dithering which happens in realtime.
+Set your built-in display’s color profile to sRGB at full brightness and look carefully at the gray parts, you should be able to see subtle banding when you disable dithering which happens in real-time.
 
-And if you're sensitive to temporal dithering you should notice a lot less eyestrain while dithering is disabled.
+And if you're sensitive to temporal dithering you should notice a lot less eye strain while dithering is disabled.
 
-A more complicated approach is to use a [video capture card](https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-12) and record your display's uncompressed output then run the recording through ffmpeg to visualize dithering with something like the following command: 
+A more complicated approach is to use a [video capture card](https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-12) and record your display's uncompressed output. Then run the recording through ffmpeg to visualize dithering with something like the following command: 
 
 `ffmpeg -i input.mov -sws_flags full_chroma_int+bitexact+accurate_rnd -vf "format=gbrp,tblend=all_mode=grainextract,eq=contrast=-60" -c:v v210 -pix_fmt yuv422p10le diff.mov`
-
-## Roadmap
-- Make this app compatible macOS 11+
-- Create a foolproof and easy dithering test
-- Intel Macs?
-- iOS?
-
-
-
-
-
