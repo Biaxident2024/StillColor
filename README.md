@@ -63,6 +63,7 @@ And if you're sensitive to temporal dithering you should notice a lot less eyest
 A more complicated approach is to use a [video capture card](https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-12) and record your display's uncompressed output. You can then process the recorded footage with FFmpeg to visualize dithering using a command like the following:
 
 `ffmpeg -i input.mov -sws_flags full_chroma_int+bitexact+accurate_rnd -vf "format=gbrp,tblend=all_mode=grainextract,eq=contrast=-60" -c:v v210 -pix_fmt yuv422p10le diff.mov`
+
 ## Roadmap
 - Create a foolproof and easy dithering test
 - Intel Macs?
