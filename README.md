@@ -58,9 +58,9 @@ To verify that your GPU is not applying dithering you can try a visual test by v
 
 Set your built-in display’s color profile to sRGB at full brightness and look carefully at the gray parts, you should be able to see subtle banding when you disable dithering which happens in real-time.
 
-And if you're sensitive to temporal dithering you should notice a lot less eye strain while dithering is disabled.
+And if you're sensitive to temporal dithering you should notice a lot less eyestrain while dithering is disabled.
 
-A more complicated approach is to use a [video capture card](https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-12) and record your display's uncompressed output. Then run the recording through ffmpeg to visualize dithering with something like the following command: 
+A more complicated approach is to use a [video capture card](https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-12) and record your display's uncompressed output. You can then process the recorded footage with FFmpeg to visualize dithering using a command like the following:
 
 `ffmpeg -i input.mov -sws_flags full_chroma_int+bitexact+accurate_rnd -vf "format=gbrp,tblend=all_mode=grainextract,eq=contrast=-60" -c:v v210 -pix_fmt yuv422p10le diff.mov`
 ## Roadmap
