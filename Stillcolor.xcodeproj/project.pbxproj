@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DB2FB672C92383600158943 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB2FB662C92383600158943 /* LaunchAtLogin */; };
 		384543E92BB5F0EB00E9C709 /* IORegistryPropertyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384543E82BB5F0EB00E9C709 /* IORegistryPropertyHelper.swift */; };
 		3865859A2B8B55CC00812B02 /* StillcolorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386585992B8B55CC00812B02 /* StillcolorApp.swift */; };
 		3865859E2B8B55CD00812B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3865859D2B8B55CD00812B02 /* Assets.xcassets */; };
-		386585C62B8B8A1F00812B02 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 386585C52B8B8A1F00812B02 /* LaunchAtLogin */; };
 		386585C82B8BF53300812B02 /* Stillcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386585C72B8BF53300812B02 /* Stillcolor.swift */; };
 		386585CA2B8BF5AC00812B02 /* ScreenDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386585C92B8BF5AC00812B02 /* ScreenDetector.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				386585C62B8B8A1F00812B02 /* LaunchAtLogin in Frameworks */,
+				2DB2FB672C92383600158943 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +98,7 @@
 				386585922B8B55CC00812B02 /* Sources */,
 				386585932B8B55CC00812B02 /* Frameworks */,
 				386585942B8B55CC00812B02 /* Resources */,
+				2D1CAE382C922F0700B84AA6 /* Launch at Login Helper */,
 				386585BF2B8B880D00812B02 /* CopyFiles */,
 			);
 			buildRules = (
@@ -106,7 +107,7 @@
 			);
 			name = Stillcolor;
 			packageProductDependencies = (
-				386585C52B8B8A1F00812B02 /* LaunchAtLogin */,
+				2DB2FB662C92383600158943 /* LaunchAtLogin */,
 			);
 			productName = HonestColor;
 			productReference = 386585962B8B55CC00812B02 /* Stillcolor.app */;
@@ -129,7 +130,7 @@
 				};
 			};
 			buildConfigurationList = 386585912B8B55CC00812B02 /* Build configuration list for PBXProject "Stillcolor" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -138,7 +139,7 @@
 			);
 			mainGroup = 3865858D2B8B55CC00812B02;
 			packageReferences = (
-				386585C42B8B8A1F00812B02 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+				2DB2FB652C92383600158943 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Legacy" */,
 			);
 			productRefGroup = 386585972B8B55CC00812B02 /* Products */;
 			projectDirPath = "";
@@ -159,6 +160,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D1CAE382C922F0700B84AA6 /* Launch at Login Helper */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Launch at Login Helper";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		386585922B8B55CC00812B02 /* Sources */ = {
@@ -212,7 +235,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -228,7 +251,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -275,7 +298,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -285,7 +308,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -309,6 +332,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Stillcolor;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -318,7 +342,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.makkuk.Stillcolor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +370,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Stillcolor;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -355,7 +380,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.makkuk.Stillcolor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,9 +415,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		386585C42B8B8A1F00812B02 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+		2DB2FB652C92383600158943 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Legacy" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Legacy";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -401,9 +426,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		386585C52B8B8A1F00812B02 /* LaunchAtLogin */ = {
+		2DB2FB662C92383600158943 /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 386585C42B8B8A1F00812B02 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			package = 2DB2FB652C92383600158943 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Legacy" */;
 			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */

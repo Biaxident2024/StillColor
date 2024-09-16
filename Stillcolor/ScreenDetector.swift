@@ -32,7 +32,7 @@ class ScreenDetector {
     }
     
 
-    func addObervers() {
+    func addObservers() {
         let userData = Unmanaged<ScreenDetector>.passUnretained(self).toOpaque()
         CGDisplayRegisterReconfigurationCallback(ScreenDetector.callback, userData)
     }
