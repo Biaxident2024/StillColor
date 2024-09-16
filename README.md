@@ -1,8 +1,3 @@
-> [!NOTE]  
-> This repository is a fork of the awesome [Stillcolor](https://github.com/aiaf/Stillcolor) repository. The primary purpose of this fork is to provide backward compatibility for macOS 12.0+ (Monterey).
-> For macOS 13.0+ (Ventura) and later versions, I highly recommend using the original [Stillcolor](https://github.com/aiaf/Stillcolor) repository.
-
-
 # Stillcolor for macOS
 <img src="https://github.com/aiaf/Stillcolor/assets/119462/26f4fe39-44bb-436d-9348-fc5ba9e8dfde" align=left width=256>
 Save your eyesight and disable temporal dithering on your Mac with Stillcolor, a lightweight menu bar app for macOS running on Apple M1/M2/M3.  
@@ -22,10 +17,10 @@ There's even a [petition](https://www.change.org/p/apple-add-accessibility-optio
 
 While there are apps and accessories to help dim blue light, and plenty of flicker-free monitors, temporal dithering can happen at the GPU level with no visible option to disable it (such as the case in Apple Silicon Macs).
 
-Stillcolor allows you to disable GPU/DCP-generated temporal dithering from user space, helping massively reduce eye strain with little to no degradation in image quality.
+Stillcolor allows you to disable GPU/DCP-generated temporal dithering from user space, helping massively reduce eyestrain with little to no degradation in image quality.
 
 ## Caveats
-Note that while Stillcolor is 100% confirmed to remove GPU/DCP-generated temporal dithering, which is applied directly to the pixel frame buffer right before it's sent to the external/embedded display, the display panel's timing controller (TCON) may still apply its own dithering/FRC to achieve advertised color bit depth. Whether Apple displays actively use TCON dithering in addition to DCP/GPU dithering is under investigation.
+Note that while Stillcolor is 100% confirmed to remove GPU/DCP-generated temporal dithering, which is applied directly to the pixel framebuffer right before it's sent to the external/embedded display, the display panel's timing controller (TCON) may still apply its own dithering/FRC to achieve advertised color bit depth. Whether Apple displays actively use TCON dithering in addition to DCP/GPU dithering is under investigation.
 
 
 ## Story and write-up
@@ -68,3 +63,12 @@ And if you're sensitive to temporal dithering you should notice a lot less eye s
 A more complicated approach is to use a [video capture card](https://www.blackmagicdesign.com/products/ultrastudio/techspecs/W-DLUS-12) and record your display's uncompressed output. Then run the recording through ffmpeg to visualize dithering with something like the following command: 
 
 `ffmpeg -i input.mov -sws_flags full_chroma_int+bitexact+accurate_rnd -vf "format=gbrp,tblend=all_mode=grainextract,eq=contrast=-60" -c:v v210 -pix_fmt yuv422p10le diff.mov`
+## Roadmap
+- Create a foolproof and easy dithering test
+- Intel Macs?
+- iOS?
+
+
+
+
+
